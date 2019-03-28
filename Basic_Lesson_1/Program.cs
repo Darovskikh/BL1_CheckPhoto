@@ -12,7 +12,7 @@ namespace Basic_Lesson_1
         {
             Console.WriteLine("Здравсвуйте, меня зовут Василиса. Предоставьте список документов");
 
-            var documents = new  string [1];
+            var documents = new  string [2];
             const int adultAge = 18;
 
             var document = Console.ReadLine();
@@ -23,7 +23,7 @@ namespace Basic_Lesson_1
 
             if (age >= adultAge)
             {
-                Console.WriteLine("Ok. Go to pay");
+                CheckPhoto(documents);
             }
             else
             {
@@ -32,16 +32,31 @@ namespace Basic_Lesson_1
 
                 if (hasPermision == true)
                 {
-                    Console.WriteLine("Ok. Go to pay");
+                    CheckPhoto(documents);
                 }
                 else
                 {
                     Console.WriteLine("Fail. Go to parents");
                 }
 
-            }
-
+            }            
             Console.ReadLine();
+        }
+        static void CheckPhoto(string [] docs)
+        {
+            foreach (string doc in docs)
+            {
+                if ((doc != "фото") && (doc != "Фото"))
+                {
+                    Console.WriteLine("Пожалуйста, сделайте фото");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Ok. Go to pay.");
+                }
+                        
+            }
         }
     }
 }
