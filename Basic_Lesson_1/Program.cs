@@ -14,10 +14,10 @@ namespace Basic_Lesson_1
 
             var documents = new  string [2];
             const int adultAge = 18;
-
-            var document = Console.ReadLine();
-            documents[0] = document;
-
+            for (int i=0; i<documents.Length; i++)
+            {
+                documents[i] = Console.ReadLine();
+            }                        
             Console.WriteLine("How old are you?");
             var age = Int32.Parse(Console.ReadLine());
 
@@ -44,18 +44,22 @@ namespace Basic_Lesson_1
         }
         static void CheckPhoto(string [] docs)
         {
+            int p = 0;
             foreach (string doc in docs)
             {
-                if ((doc != "фото") && (doc != "Фото"))
+                if (doc == "photo")
                 {
-                    Console.WriteLine("Пожалуйста, сделайте фото");
+                    Console.WriteLine("Ok. Go to pay.");                    
                     break;
                 }
                 else
                 {
-                    Console.WriteLine("Ok. Go to pay.");
+                    p++;
                 }
-                        
+                if (p==docs.Length)
+                {
+                    Console.WriteLine("Take a photo");
+                }
             }
         }
     }
